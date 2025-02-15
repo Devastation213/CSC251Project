@@ -31,7 +31,11 @@ public class Policy
       number = num;
    }
    /*
+<<<<<<< Updated upstream
    The setPolicyProviderName method stores a value in the providerName field
+=======
+   The setProviderName method stores a value in the providerName field
+>>>>>>> Stashed changes
    */
    public void setProviderName(String provider)
    {
@@ -61,7 +65,11 @@ public class Policy
    /*
    The setSmokingStatus method stores a value in the smokeStatus field
    */
+<<<<<<< Updated upstream
    public void setmokingStatus(String smoke)
+=======
+   public void setSmokingStatus(String smoke)
+>>>>>>> Stashed changes
    {
       smokeStatus = smoke;
    }
@@ -135,12 +143,24 @@ public class Policy
    {
       return weight;
    }
+<<<<<<< Updated upstream
    
+=======
+   /*
+   the calculateBMI method calculates and returns the policyholder's BMI
+   */
+>>>>>>> Stashed changes
    public double calculateBMI()
    {
       BMI = (weight * 703) / (Math.pow(height, 2.0));
       return BMI;
    }
+<<<<<<< Updated upstream
+=======
+   /*
+   the calculateInsuranceFee method calculates and returns the Policy Insurance Fee
+   */
+>>>>>>> Stashed changes
    public double calculateInsuranceFee()
    {
       double fee = 600;
