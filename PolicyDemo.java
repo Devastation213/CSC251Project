@@ -13,7 +13,7 @@ public class PolicyDemo
          //creating file
          File file = new File("PolicyInformation.txt");
          //creating reference scanner
-         Scanner inputFile = new Scanner(file)
+         Scanner inputFile = new Scanner(file);
          
          //declare variables
          String policyNumber = "", providerName = "", firstName = "", lastName = "";
@@ -72,7 +72,7 @@ public class PolicyDemo
             System.out.printf("Policy Price: $%.2f\n", policyList.get(i).getPrice());
             //Put blank lines before the next loop
             System.out.println();
-            System.out.println()
+            System.out.println();
          }
       }//close "try" block
       
