@@ -1,33 +1,32 @@
 public class Policy
 {
-   private int number;
+   private String number;
    private String providerName;
    private String firstName;
    private String lastName;
    private int age;
    private String smokeStatus;
-   private float height;
-   private float weight;
-   private double BMI;
-      
-   //no-arg constructor
-   public Policy()
+   private double height;
+   private double weight;
+   private double BMI = 0.00;
+         
+   //constructor
+   public Policy(String num, String provider, String first, String last, int a, String smoke, double h, double w)
    {
-      this.number = 0;
-      this.providerName = "Unknown";
-      this.firstName = "Unknown";
-      this.lastName = "Unknown";
-      this.age = 0;
-      this.smokeStatus = "Unknown";
-      this.height = 0;
-      this.weight = 0;
-      this.BMI = 0;
+      this.number = num;
+      this.providerName = provider;
+      this.firstName = first;
+      this.lastName = last;
+      this.age = a;
+      this.smokeStatus = smoke;
+      this.height = h;
+      this.weight = w;
    }
    /*
    The setPolicyNumber method stores a value in the number field
    @param num The policy number
    */
-   public void setPolicyNumber(int num)
+   public void setPolicyNumber(String num)
    {
       number = num;
    }
@@ -75,7 +74,7 @@ public class Policy
    The setHeight method stores a value in the height field
    @param h The customer's height
    */
-   public void setHeight(float h)
+   public void setHeight(double h)
    {
       height = h;
    }
@@ -83,7 +82,7 @@ public class Policy
    The setWeight method stores a value in the weight field
    @param w The customer's weight
    */
-   public void setWeight(float w)
+   public void setWeight(double w)
    {
       weight = w;
    }
@@ -91,7 +90,7 @@ public class Policy
    the getPolicyNumber method returns the policy number
    @return policy number
    */
-   public int getPolicyNumber()
+   public String getPolicyNumber()
    {
       return number;
    }
@@ -139,7 +138,7 @@ public class Policy
    the getHeight method returns the policyholder's height
    @return customer height
    */
-   public float getHeight()
+   public double getHeight()
    {
       return height;
    }
@@ -147,7 +146,7 @@ public class Policy
    the getWeight method returns the policyholder's weight
    @return customer weight
    */
-   public float getWeight()
+   public double getWeight()
    {
       return weight;
    }
@@ -164,7 +163,7 @@ public class Policy
    the calculateInsuranceFee method calculates and returns the Policy Insurance Fee
    @return Insurance Fee based on Age, Smoking Status, and BMI set before
    */
-   public double calculateInsuranceFee()
+   public double calculatePolicyPrice()
    {
       double fee = 600;
       if (age > 50)
