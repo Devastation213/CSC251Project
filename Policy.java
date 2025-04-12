@@ -18,7 +18,7 @@ public class Policy
       if (owner.getSmokingStatus().equalsIgnoreCase("smoker"))
          fee += 100;
       if (owner.getBMI() > 35)
-         fee += (BMI-35)*20;
+         fee += (owner.getBMI()-35)*20;
       instanceCount++;
    }
    /*
