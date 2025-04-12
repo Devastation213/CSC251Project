@@ -4,7 +4,6 @@ public class PolicyHolder
    private String lastName;
    private int age;
    private String smokeStatus;
-   private String symbol;
    private double height;
    private double weight;
    private double BMI = 0.00;
@@ -56,18 +55,16 @@ public class PolicyHolder
    The setHeight method stores a value in the height field
    @param sym The symbol, h The customer's height
    */
-   public void setHeight(String in, double h)
+   public void setHeight(double h)
    {
-      symbol = in;
       height = h;
    }
    /*
    The setWeight method stores a value in the weight field
    @param lb The symbol, w The customer's weight
    */
-   public void setWeight(String lb, double w)
+   public void setWeight(double w)
    {
-      symbol = lb;
       weight = w;
    }
    /*
