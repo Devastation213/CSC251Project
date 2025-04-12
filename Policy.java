@@ -2,12 +2,14 @@ public class Policy
 {
    private String number;
    private String providerName;
+   private static int instanceCount;
          
    //constructor
    public Policy(String num, String provider)
    {
       this.number = num;
       this.providerName = provider;
+      instanceCount++;
    }
    /*
    The setPolicyNumber method stores a value in the number field
@@ -25,12 +27,20 @@ public class Policy
    {
       providerName = provider;
    }
-      /*
+   /*
    the getPolicyNumber method returns the policy number
    @return policy number
    */
    public String getPolicyNumber()
    {
       return number;
+   }
+   /*
+   the getIntsanceCount method returns the instance count
+   @return policy number
+   */
+   public int getInstanceCount()
+   {
+      return instanceCount;
    }
 }
