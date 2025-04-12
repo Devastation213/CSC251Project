@@ -79,14 +79,6 @@ public class PolicyHolder
       BMI = (weight * 703) / (Math.pow(height, 2.0));
    }
    /*
-   The getProviderName method returns the provider name
-   @return provider name
-   */
-   public String getProviderName()
-   {
-      return providerName;
-   }
-   /*
    The getFirstName method returns the policyholder's first name
    @return customer first name
    */
@@ -151,31 +143,13 @@ public class PolicyHolder
       return BMI
    }
    /*
-   the calculateInsuranceFee method calculates and returns the Policy Insurance Fee
-   @return Insurance Fee based on Age, Smoking Status, and BMI set before
-   */
-   public double calculatePolicyPrice()
-   {
-      
-      
-      double fee = 600;
-      if (age > 50)
-         fee += 75;
-      if (smokeStatus.equalsIgnoreCase("smoker"))
-         fee += 100;
-      if (BMI > 35)
-         fee += (BMI-35)*20;
-      return fee;
-   }
-   /*
    toString method
-   @return a string indicating the policyholder's height, weight, BMI, and insurance fee
+   @return a string indicating the policyholder's height, weight, and BMI
    */
    public String toString()
    {
       String str = "Policyholder's Height: %.1f inches\n", height
                    "Policyholder's Weight: %.1f pounds\n", weight
-                   "Policyholder's BMI: %.2f\n", BMI
-                   "Policy Price: $%.2f\n", fee;
+                   "Policyholder's BMI: %.2f\n", BMI;
    }
 }
