@@ -74,7 +74,7 @@ public class Policy
    */
    public String toString()
    {
-      String str = "Policy Price: $%.2f\n", fee;
+      String str = "Policy Price: $" + fee;
    }
    /*
    the getIntsanceCount method returns the instance count

@@ -145,8 +145,8 @@ public class PolicyHolder
    */
    public String toString()
    {
-      String str = "Policyholder's Height: %.1f inches\n", height
-                   "Policyholder's Weight: %.1f pounds\n", weight
-                   "Policyholder's BMI: %.2f\n", BMI;
+      String str = "Policyholder's Height: " + height + 
+                   " inches\nPolicyholder's Weight: " + weight +
+                   " pounds\nPolicyholder's BMI: " + BMI;
    }
 }
