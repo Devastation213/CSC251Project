@@ -1,12 +1,9 @@
 public class PolicyHolder
 {
-   private String firstName;
-   private String lastName;
+   private String firstName, lastName;
    private int age;
    private String smokeStatus;
-   private double height;
-   private double weight;
-   private double BMI = 0.00;
+   private double height, weight, BMI;
    
    //constructor
    public PolicyHolder(String first, String last, int a, String smoke, double h, double w)
@@ -17,63 +14,18 @@ public class PolicyHolder
       this.smokeStatus = smoke;
       this.height = h;
       this.weight = w;
+      this.BMI = (weight * 703) / (Math.pow(height, 2.0));
    }
-   
-   /*
-   The setFirstName method stores a value in the firstName field
-   @param first The customer's first name
-   */
-   public void setFirstName(String first)
+   //copy constructor
+   copy constructor(PolicyHolder object2)
    {
-      firstName = first;
-   }
-   /*
-   The setLastName method stores a value in the lastName field
-   @param last The customer's last name
-   */
-   public void setLastName(String last)
-   {
-      lastName = last;
-   }
-   /*
-   The setAge method stores a value in the age field
-   @param a The customers age
-   */
-   public void setAge(int a)
-   {
-      age = a;
-   }
-   /*
-   The setSmokingStatus method stores a value in the smokeStatus field
-   @param smoke The customer's smoking status
-   */
-   public void setSmokingStatus(String smoke)
-   {
-      smokeStatus = smoke;
-   }
-   /*
-   The setHeight method stores a value in the height field
-   @param sym The symbol, h The customer's height
-   */
-   public void setHeight(double h)
-   {
-      height = h;
-   }
-   /*
-   The setWeight method stores a value in the weight field
-   @param lb The symbol, w The customer's weight
-   */
-   public void setWeight(double w)
-   {
-      weight = w;
-   }
-   /*
-   the calculateBMI method calculates the policyholder's BMI
-   @return Body Mass Index based on Weight and Height
-   */
-   public static double calculateBMI()
-   {
-      BMI = (weight * 703) / (Math.pow(height, 2.0));
+      firstName = object2.firstName;
+      lastName = object2.lastName;
+      age = object2.age;
+      smokeStatus = object2.smokeStatus;
+      height = object2.height;
+      weight = object2.weight;
+      BMI = object2.BMI;
    }
    /*
    The getFirstName method returns the policyholder's first name
@@ -108,14 +60,6 @@ public class PolicyHolder
       return smokeStatus;
    }
    /*
-   the getSymbol method returns the current symbol
-   @return symbol
-   */
-   public double getSymbol()
-   {
-      return symbol;
-   }
-   /*
    the getHeight method returns the policyholder's height
    @return customer height
    */
@@ -137,16 +81,21 @@ public class PolicyHolder
    */
    public double getBMI()
    {
-      return BMI
+      return BMI;
    }
    /*
    toString method
-   @return a string indicating the policyholder's height, weight, and BMI
+   @return a string indicating the policyholder's full name, age, smoking status, height, weight, and BMI
    */
    public String toString()
    {
-      String str = "Policyholder's Height: " + height + 
+      String str = "Policyholder's First Name: " + FirstName + 
+                   "\nPolicyholder's Last Name: " + LastName +
+                   "\nPolicyholder's Age: " + age +
+                   "\nPolicyholder's Smoking Status: " + smokeStatus +
+                   "\nPolicyholder's Height: " + height + 
                    " inches\nPolicyholder's Weight: " + weight +
                    " pounds\nPolicyholder's BMI: " + BMI;
+      return str;
    }
 }

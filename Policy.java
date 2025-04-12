@@ -3,6 +3,7 @@ public class Policy
    private String number;
    private String providerName;
    private PolicyHolder holder;
+   private double fee;
    private static int instanceCount;
          
    //constructor
@@ -11,23 +12,14 @@ public class Policy
       this.number = num;
       this.providerName = provider;
       holder = new PolicyHolder(owner);
+      fee = 600; 
+      if (owner.getAge() > 50)
+         fee += 75;
+      if (owner.getSmokingStatus().equalsIgnoreCase("smoker"))
+         fee += 100;
+      if (owner.getBMI() > 35)
+         fee += (BMI-35)*20;
       instanceCount++;
-   }
-   /*
-   The setPolicyNumber method stores a value in the number field
-   @param num The policy number
-   */
-   public void setPolicyNumber(String num)
-   {
-      number = num;
-   }
-   /*
-   The setProviderName method stores a value in the providerName field
-   @param provider The provider name
-   */
-   public void setProviderName(String provider)
-   {
-      providerName = provider;
    }
    /*
    the getPolicyNumber method returns the policy number
@@ -51,30 +43,27 @@ public class Policy
    */
    public PolicyHolder getHolder()
    {
-      return new PolicyHolder(holder)
+      return new PolicyHolder(holder);
    }
    /*
-   the calculateInsuranceFee method calculates and returns the Policy Insurance Fee
+   the getPolicyPrice method returns the Policy Insurance Fee
    @return Insurance Fee based on Age, Smoking Status, and BMI
    */
-   public double calculatePolicyPrice()
+   public double getPolicyPrice()
    {
-      double fee = 600; 
-      if (holder.getAge > 50)
-         fee += 75;
-      if (holder.getSmokingStatus.equalsIgnoreCase("smoker"))
-         fee += 100;
-      if (holder.getBMI > 35)
-         fee += (BMI-35)*20;
+      
       return fee;
    }
    /*
    toString method
-   @return a string indicating the insurance fee
    */
    public String toString()
    {
-      String str = "Policy Price: $" + fee;
+      String str = "Policy Number: " + number +
+                   "\nProvider Name: " + providerName +
+                   "\n" + holder +
+                   "\nPolicy Price: $" + fee;
+      return str;
    }
    /*
    the getIntsanceCount method returns the instance count
