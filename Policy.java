@@ -1,3 +1,6 @@
+import java.text.DecimalFormat;
+import java.math.RoundingMode;
+
 public class Policy
 {
    private String number;
@@ -12,13 +15,15 @@ public class Policy
       this.number = num;
       this.providerName = provider;
       holder = new PolicyHolder(owner);
-      fee = 600; 
-      if (owner.getAge() > 50)
-         fee += 75;
-      if (owner.getSmokingStatus().equalsIgnoreCase("smoker"))
-         fee += 100;
-      if (owner.getBMI() > 35)
-         fee += (owner.getBMI()-35)*20;
+      //calculate fee
+      this.fee = 600; 
+      if (holder.getAge() > 50)
+         this.fee += 75;
+      if (holder.getSmokingStatus().equalsIgnoreCase("smoker"))
+         this.fee += 100;
+      if (holder.getBMI() > 35)
+         this.fee += (owner.getBMI()-35)*20;
+      //increment total instances
       instanceCount++;
    }
    /*
@@ -59,18 +64,21 @@ public class Policy
    */
    public String toString()
    {
+      DecimalFormat df = new DecimalFormat("#.##");
+      df.setRoundingMode(RoundingMode.HALF_UP);
       String str = "Policy Number: " + number +
                    "\nProvider Name: " + providerName +
                    "\n" + holder +
-                   "\nPolicy Price: $" + fee;
+                   "\nPolicy Price: $" + Double.parseDouble(df.format(fee));
       return str;
    }
    /*
    the getIntsanceCount method returns the instance count
    @return policy number
    */
-   public int getInstanceCount()
+   public static String getInstanceCount()
    {
-      return instanceCount;
+      String count = "There were " + instanceCount + " Policy objects created.";
+      return count;
    }
 }

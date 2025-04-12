@@ -17,9 +17,10 @@ public class PolicyDemo
          
          //declare variables
          String policyNumber = "", providerName = "", firstName = "", lastName = "";
-         int age = 0, smoker = 0, nonsmoker = 0;
+         int age = 0;
          String smokingStatus = "";
          double height = 0.00, weight = 0.00;
+         int instanceCount;
          
          //make ArrayList
          ArrayList<Policy> policyList = new ArrayList<Policy>();
@@ -48,8 +49,8 @@ public class PolicyDemo
             
             /*create a Policy object using the Policy class. - we are still under the while loop. Objects will be created as long as there are records
             in the file to read.*/
-            
-            Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
+            PolicyHolder customer = new PolicyHolder(firstName, lastName, age, smokingStatus, height, weight);
+            Policy policy = new Policy(policyNumber, providerName, customer);
             
             /* Add Policy objects to the ArrayList (Note: policyList is the reference variable for the ArrayList and policy is the
             reference variable for the Policy object)*/
@@ -63,27 +64,12 @@ public class PolicyDemo
             //put a blank line before the output
             System.out.println();
             //display information about the Policy
-            System.out.println("Policy Number: " + policyList.get(i).getPolicyNumber());
-            System.out.println("Provider Name: " + policyList.get(i).getProviderName());
-            System.out.println("Policyholder's First Name: " + policyList.get(i).getFirstName());
-            System.out.println("Policyholder's Last Name: " + policyList.get(i).getLastName());
-            System.out.println("Policyholder's Age: " + policyList.get(i).getAge());
-            System.out.println("Policyholder's Smoking Status: " + policyList.get(i).getSmokingStatus());
-            System.out.printf("Policyholder's Height: %.1f inches\n", policyList.get(i).getHeight());
-            System.out.printf("Policyholder's Weight: %.1f pounds\n", policyList.get(i).getWeight());
-            System.out.printf("Policyholder's BMI: %.2f\n", policyList.get(i).calculateBMI());
-            System.out.printf("Policy Price: $%.2f\n", policyList.get(i).calculatePolicyPrice());
-            //calculate total smoker statuses
-            if(policyList.get(i).getSmokingStatus().equalsIgnoreCase("smoker"))
-               smoker++;
-            else
-               nonsmoker++;
+            System.out.println(policyList.get(i));
             //Put a blank line before the next loop
             System.out.println();
          }//close for loop
-         //display number of poilicies with smokers and nonsmokers 
-         System.out.println("The number of policies with a smoker is: " + smoker);
-         System.out.println("The number of policies with a non-smoker is: " + nonsmoker);
+         System.out.println(Policy.getInstanceCount());
+         System.out.println(PolicyHolder.getSmokers());         
       }//close "try" block
       
       catch(IOException ex)//If something goes wrong, an IOException is "thrown" to us, and we "catch" it and deal with it

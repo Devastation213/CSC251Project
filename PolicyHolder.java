@@ -1,7 +1,11 @@
+import java.text.DecimalFormat;
+import java.math.RoundingMode;
+
 public class PolicyHolder
 {
    private String firstName, lastName;
    private int age;
+   private static int smoker, nonsmoker;
    private String smokeStatus;
    private double height, weight, BMI;
    
@@ -12,8 +16,14 @@ public class PolicyHolder
       this.lastName = last;
       this.age = a;
       this.smokeStatus = smoke;
+      //calculate total smoker statuses
+      if(smokeStatus.equalsIgnoreCase("smoker"))
+               smoker++;
+            else
+               nonsmoker++;
       this.height = h;
       this.weight = w;
+      //calculate BMI
       this.BMI = (weight * 703) / (Math.pow(height, 2.0));
    }
    //copy constructor
@@ -89,13 +99,21 @@ public class PolicyHolder
    */
    public String toString()
    {
+      DecimalFormat df = new DecimalFormat("#.##");
+      df.setRoundingMode(RoundingMode.HALF_UP);
       String str = "Policyholder's First Name: " + firstName + 
                    "\nPolicyholder's Last Name: " + lastName +
                    "\nPolicyholder's Age: " + age +
                    "\nPolicyholder's Smoking Status: " + smokeStatus +
                    "\nPolicyholder's Height: " + height + 
                    " inches\nPolicyholder's Weight: " + weight +
-                   " pounds\nPolicyholder's BMI: " + BMI;
+                   " pounds\nPolicyholder's BMI: " + Double.parseDouble(df.format(BMI));
       return str;
+   }
+   public static String getSmokers()
+   {
+      String cig = "The number of policies with a smoker is: " + smoker +
+                   "\nThe number of policies with a non-smoker is: " + nonsmoker;
+      return cig;
    }
 }
