@@ -4,6 +4,7 @@ public class PolicyHolder
    private String lastName;
    private int age;
    private String smokeStatus;
+   private String symbol;
    private double height;
    private double weight;
    private double BMI = 0.00;
@@ -53,19 +54,29 @@ public class PolicyHolder
    }
    /*
    The setHeight method stores a value in the height field
-   @param h The customer's height
+   @param sym The symbol, h The customer's height
    */
-   public void setHeight(double h)
+   public void setHeight(String in, double h)
    {
+      symbol = in;
       height = h;
    }
    /*
    The setWeight method stores a value in the weight field
-   @param w The customer's weight
+   @param lb The symbol, w The customer's weight
    */
-   public void setWeight(double w)
+   public void setWeight(String lb, double w)
    {
+      symbol = lb;
       weight = w;
+   }
+   /*
+   the calculateBMI method calculates the policyholder's BMI
+   @return Body Mass Index based on Weight and Height
+   */
+   public static double calculateBMI()
+   {
+      BMI = (weight * 703) / (Math.pow(height, 2.0));
    }
    /*
    The getProviderName method returns the provider name
@@ -108,6 +119,14 @@ public class PolicyHolder
       return smokeStatus;
    }
    /*
+   the getSymbol method returns the current symbol
+   @return symbol
+   */
+   public double getSymbol()
+   {
+      return symbol;
+   }
+   /*
    the getHeight method returns the policyholder's height
    @return customer height
    */
@@ -124,13 +143,12 @@ public class PolicyHolder
       return weight;
    }
    /*
-   the calculateBMI method calculates and returns the policyholder's BMI
+   the getBMI method returns the policyholder's BMI
    @return Body Mass Index based on Weight and Height
    */
-   public double calculateBMI()
+   public double getBMI()
    {
-      BMI = (weight * 703) / (Math.pow(height, 2.0));
-      return BMI;
+      return BMI
    }
    /*
    the calculateInsuranceFee method calculates and returns the Policy Insurance Fee
@@ -138,6 +156,8 @@ public class PolicyHolder
    */
    public double calculatePolicyPrice()
    {
+      
+      
       double fee = 600;
       if (age > 50)
          fee += 75;
@@ -146,5 +166,16 @@ public class PolicyHolder
       if (BMI > 35)
          fee += (BMI-35)*20;
       return fee;
+   }
+   /*
+   toString method
+   @return a string indicating the policyholder's height, weight, BMI, and insurance fee
+   */
+   public String toString()
+   {
+      String str = "Policyholder's Height: %.1f inches\n", height
+                   "Policyholder's Weight: %.1f pounds\n", weight
+                   "Policyholder's BMI: %.2f\n", BMI
+                   "Policy Price: $%.2f\n", fee;
    }
 }
