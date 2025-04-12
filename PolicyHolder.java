@@ -17,7 +17,7 @@ public class PolicyHolder
       this.BMI = (weight * 703) / (Math.pow(height, 2.0));
    }
    //copy constructor
-   copy constructor(PolicyHolder object2)
+   public PolicyHolder(PolicyHolder object2)
    {
       firstName = object2.firstName;
       lastName = object2.lastName;
@@ -89,8 +89,8 @@ public class PolicyHolder
    */
    public String toString()
    {
-      String str = "Policyholder's First Name: " + FirstName + 
-                   "\nPolicyholder's Last Name: " + LastName +
+      String str = "Policyholder's First Name: " + firstName + 
+                   "\nPolicyholder's Last Name: " + lastName +
                    "\nPolicyholder's Age: " + age +
                    "\nPolicyholder's Smoking Status: " + smokeStatus +
                    "\nPolicyholder's Height: " + height + 
